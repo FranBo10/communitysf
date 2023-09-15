@@ -1,0 +1,24 @@
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//MEDIA QUERY BREAKPOINTS
+
+@mixin media($breakpoint) {
+    @if $breakpoint  == phone {
+        @media only screen and (max-width: 37.5em){@content}; //600px
+    }
+    @if $breakpoint  == tablet {
+        @media only screen and (max-width: 56.25em){@content}; //900px
+    }
+    @if $breakpoint  == laptop {
+        @media only screen and (max-width: 75em){@content}; //1200px
+    }
+    @if $breakpoint  == desktop {
+        @media only screen and (max-width: 112.5em){@content}; //1800px
+    }
+
+
+}

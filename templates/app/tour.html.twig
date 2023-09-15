@@ -1,0 +1,246 @@
+{% extends 'base.html.twig' %} {% block title %} {% for slider in sliders %}
+{# {{ slider.tours.titulo }} #}
+{% endfor %} {% endblock %} {% block body %}
+<div class="fixed-nav">{% include 'nav/_menu_nav.html.twig' %}</div>
+<div class="carousel-container">
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    {#
+    <div class="carousel-indicators">
+      {% for slider in sliders %}
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="{{ loop.index0 }}"
+        {%
+        if
+        loop.first
+        %}
+        class="active"
+        aria-current="true"
+        {%
+        endif
+        %}
+        aria-label="Slide {{ loop.index }}"
+      ></button>
+      {% endfor %}
+    </div>
+    #}
+    <div class="carousel-inner">
+      {% for slider in sliders %}
+      <div class="carousel-item{% if loop.first %} active{% endif %}">
+        <div
+          class="card-image-slider"
+          style="background-image: linear-gradient(rgba(0, 0, 0, 0.316), transparent), url('{{ asset('uploads/images/' ~ slider.imagen) }}'); background-size: cover; background-position: center;"
+        >
+          <div class="content-slider">
+            <h3 class="animation content-slider-title">
+              {{ slider.titulo }}
+            </h3>
+            <h2 class="animation content-slider-subtitle">
+              {{ tours.titulo }}
+            </h2>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div class="menu__detalle-tour">
+  <div class="detalle-tour">
+    <ul>
+      <li>
+        <a
+          href="#descripcion"
+          id="selected
+               "
+          >Descripcion</a
+        >
+      </li>
+      <li><a href="#precio">Precios</a></li>
+      <li><a href="#detalles">Detalles</a></li>
+      <li><a href="#cancelacion">Cancelaciones</a></li>
+      <li><a href="#encuentro">Punto de encuentro</a></li>
+      <li><a href="#">Opiniones</a></li>
+    </ul>
+  </div>
+</div>
+<div id="container-detalles">
+  <div id="descripcion" class="container-detalles">
+    <h3>{{ tours.titulo }}</h3>
+    <div class="detalle-descripcion">
+      <p>{{ tours.descripcionCorta }}</p>
+      <div class="descripcion-hidden">
+        <p>{{ tours.descripcionLarga | raw }}</p>
+      </div>
+      <div class="descripcion-container">
+        <a href="#" id="mostrar-link" class="btn-description"
+          >Ver descripción completa</a
+        >
+      </div>
+      <a href="#" id="ocultar-link" class="hidden">Ocultar descripción</a>
+    </div>
+    <hr />
+    <div id="precio" class="detalle-precio">
+      <h3>Precio</h3>
+      <p>
+        Los free tours no tienen un precio fijo. Cada persona valora la labor
+        del guía y, al finalizar el tour, entrega el importe que considere a su
+        voluntad en función de su satisfacción.
+      </p>
+    </div>
+    <hr />
+    <div id="detalles" class="detalle-general">
+      <h3>Detalles</h3>
+      <div>
+        <div class="detalle-duracion">
+          <div class="detalle-titulo">
+            <i class="fas fa-clock"></i>
+            <h5>Duracion</h5>
+          </div>
+          <p>1h 30m - 2h</p>
+        </div>
+        <hr />
+        <div class="detalle-idioma">
+          <div class="detalle-titulo">
+            <i class="fas fa-comment"></i>
+            <h5>Idioma</h5>
+          </div>
+          <p>La actividad se realiza con un guia que habla espanol</p>
+        </div>
+
+        <hr />
+        <div class="detalle-incluido">
+          <div class="detalle-titulo">
+            <i class="fas fa-check"></i>
+            <h5>Incluido</h5>
+          </div>
+          <p>Guia en espanol</p>
+        </div>
+        <hr />
+        <div class="detalle-noincluido">
+          <div class="detalle-titulo">
+            <i class="fas fa-ban"></i>
+            <h5>No incluido</h5>
+          </div>
+          <p>Propinas</p>
+        </div>
+        <hr />
+        <div class="detalle-reservar">
+          <div class="detalle-titulo">
+            <i class="fas fa-calendar"></i>
+            <h5>Cuando reservar</h5>
+          </div>
+          <p>Puedes reservar hasta 30 minutos antes de que comience el tour</p>
+        </div>
+        <hr />
+        <div class="detalle-accesibilidad">
+          <div class="detalle-titulo">
+            <i class="fas fa-wheelchair"></i>
+            <h5>Accesibilidad</h5>
+          </div>
+          <p>No es accesible en silla de ruedas</p>
+        </div>
+        <hr />
+        <div class="detalle-mascotas">
+          <div class="detalle-titulo">
+            <i class="fas fa-paw"></i>
+            <h5>Mascotas</h5>
+          </div>
+          <p>No permitidas</p>
+        </div>
+        <hr />
+        <div class="detalle-faq">
+          <div class="detalle-titulo">
+            <i class="fas fa-question"></i>
+            <h5>Preguntas frecuentes</h5>
+          </div>
+        </div>
+        <div class="detalle-faq-2">
+          <ul>
+            <li>
+              <p><strong>Como hacer la reserva?</strong></p>
+              <p>
+                Para reservar el Free tour de leyendas y misterios de Paris,
+                elige la fecha deseada y completa el formulario, indicando el
+                numero de participantes. La confirmacion es inmediata.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Se necesita un numero minimo de participantes?</strong>
+              </p>
+              <p>
+                El numero minimo de participantes es de una persona, asi que si
+                es tu caso apuntate y disfruta de un rato agradable
+              </p>
+            </li>
+            <li>
+              <p>
+                Para cualquier otra duda,
+                {# <a href="{{ path('contacto') }}">contacta con nosotros</a> #}
+              </p>
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <div id="cancelacion" class="detalle-cancelacion">
+          <h3>Cancelacion gratuita</h3>
+          <p>
+            Si no vas a poder asistir al tour, por favor, cancela la reserva, si
+            no, el guía te estará esperando.
+          </p>
+        </div>
+        <hr />
+        <div id="encuentro" class="detalle-encuentro">
+          <div class="meeting-point">
+            <h3>Punto de encuentro</h3>
+            <h5><strong>Donde termina la actividad?</strong></h5>
+          </div>
+          <div class="ubicacion">
+            <div class="detalle-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <h6>Place de cité</h6>
+            </div>
+            <div class="detalle-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <h6>Plaza del ayuntamiento</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {# <div class="calendar">
+    <img
+      src="{{ asset('uploads/images/montmartre.jpg') }}"
+      alt=""
+      width="250"
+      height="350"
+    />
+  </div> #}
+</div>
+<script src="{{ asset('assets/js/tour.js') }}"></script>
+{% endblock %}
