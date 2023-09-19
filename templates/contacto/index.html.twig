@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %} {% block title %}Contacto{% endblock %} {% block
+body %}
+<div id="main-container" class="container my-5">
+  {% for message in app.flashes('success') %}
+  <div class="alert alert-success text-center w-50 mx-auto my-2">
+    {{ message }}
+  </div>
+  {% endfor %}
+  <h1 class="text-center h3 my-3 pb-3 border-bottom border-dark">Contacto</h1>
+  <div class="container">
+    {{ form_start(form, { action: path("contacto") }) }}
+    <div class="row mx-3">
+      <div class="col-md-6">
+        {{ form_row(form.nombre) }}
+      </div>
+      <div class="col-md-6">
+        {{ form_row(form.email) }}
+      </div>
+      <div class="col-md-12">
+        {{ form_row(form.mensaje) }}
+      </div>
+
+      {#
+      <button type="submit" class="btn btn-primary col-md-6 mb-3">
+        Enviar
+      </button>
+      #}
+      {{ form_end(form) }}
+    </div>
+    {# {% if app.user %} {% include 'app/_side_menu.html.twig' %} {% endif %} #}
+  </div>
+</div>
+{% endblock %} {% set currentPage = 'contacto' %}

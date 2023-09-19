@@ -135,9 +135,22 @@ if (currentScrollY < prevScrollY) {
 prevScrollY = currentScrollY;
 });
 
-
-
-
 // Ejecutamos la función al cargar la página
 window.dispatchEvent(new Event("scroll"));
+
+//* ------------ Traitement des avatars -----------------
+
+// const select = document.querySelector("#select");
+// const options = document.querySelector("#options");
+// const selectedImage = document.getElementById('selectedImage');
+// const avatarInput = document.querySelector('input[name="registration_form[avatar]"]');
+
+// select.addEventListener("click", () => {
+//   select.classList.toggle("active");
+//   options.classList.toggle("active");
+//   options.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// });
+
+
+
    

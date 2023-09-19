@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    z-index: 10;
+    z-index: 100000;
     height: 50px;
     background-color: transparent;
     transition: background-color 0.3s ease;
@@ -137,6 +137,109 @@
     opacity: 0;
     z-index: 10;
   }
+
+  .titulo-login {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .titulo-login h5 {
+    text-align: start;
+  }
+  
+  .form-login, .checkbox-login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .button-login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    margin-right: 20px;
+  }
+  
+  .under-login {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .selectbox {
+    width: 50%;
+    position: relative;
+  }
+  
+  .select {
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #333;
+    z-index: 200;
+    width: 100%;
+  }
+  
+  .select.active {
+    border-radius: 0;
+  }
+  
+  .select-content  {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 15px;
+    color: #000;
+  }
+  
+  .options {
+    width: 100%;
+    background-color: #fff;
+    padding: 5px;
+    display: flex; /* Usar flexbox para distribuir las opciones en una fila */
+    flex-wrap: wrap; /* Permitir que las opciones se envuelvan en múltiples filas */
+    max-height: 300px;
+    overflow-y: auto;
+    gap: 10px; /* Espacio entre las opciones */
+  }
+  
+  .options.active {
+    display: none;
+  }
+  
+  .option {
+    flex-basis: calc(25% - 10px); /* Establecer el ancho de cada opción */
+    text-align: center; /* Centrar el contenido de la opción */
+  }
+  
+  .option-content {
+    display: block; /* No se necesita flex para las imágenes en este nivel */
+  }
+  
+  .option-content .images img {
+    width: 100%;
+    height: auto; /* Ajustar la altura automáticamente para mantener la proporción */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .option-content .images img:hover {
+    transform: scale(1.1);
+  }
   
   nav ul li ul a {
     text-decoration: none;
@@ -251,6 +354,7 @@
     nav {
         display: none;
     }
+
     .logo a span {
         color: #000;
         text-transform: uppercase;

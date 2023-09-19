@@ -37,7 +37,7 @@ class AppController extends AbstractController
         if (!$tours) {
             throw $this->createNotFoundException('Tour no encontrado');
         }
-        $sliders = $this->em->getRepository(Slider::class)->findBy(['tours' => $tours]);
+        $sliders = $this->em->getRepository(Slider::class)->findBy(['tours' => $tours]); 
 
 
         return $this->render('app/tour.html.twig', [
