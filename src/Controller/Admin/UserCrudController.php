@@ -6,7 +6,9 @@ use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CountryField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -21,8 +23,12 @@ class UserCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+            TextField::new('Nombre', 'Nombre'),
+            TextField::new('Apellidos', 'Apellidos'),
             TextField::new('email', 'E-Mail'),
             TextField::new('password', 'Contraseña')->setFormType(PasswordType::class)->onlyWhenCreating(),
+            TelephoneField::new('telefono', 'Teléfono'),
+            CountryField::new('pais', 'Pais'),
             ChoiceField::new('roles', 'Rol')->setChoices([
                 'Usuario'  => 'ROLE_USER',
                 'Admin' => 'ROLE_ADMIN',

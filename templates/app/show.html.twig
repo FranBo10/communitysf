@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %} {% block title %} Devis commande {% endblock %}
+{% block body %}
+<div id="main-container" class="container-fluid my-3">
+  {# <h3 class="text-center my-3">Indicar asistentes</h3> #}
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center align-middle">Tour</th>
+        <th class="text-center align-middle">Precio</th>
+        <th class="text-center align-middle">Adultos</th>
+        <th class="text-center align-middle">Niños</th>
+        <th class="text-center align-middle">Fecha</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center align-middle">
+          <img
+            src="{{ asset('uploads/images/' ~ tour.imagen) }}"
+            alt="{{ tour.titulo }}"
+            style="object-fit: cover"
+            width="100%"
+            height="100"
+          />
+          {{ tour.titulo | title }}
+        </td>
+        <td class="text-center align-middle">
+          {% if tour.precio == 0 %}
+          <p><span>Free Tour</span></p>
+          {% else %}
+          <p>{{ tour.precio/100|number_format(2, '.') }} €</p>
+          {% endif %}
+        </td>
+
+        {% if app.user %}
+        {{
+          form_start(form, { attr: { novalidate: "novalidate" } })
+        }}
+        <td class="text-center align-middle">
+          {{ form_row(form.cantidad_adultos) }}
+        </td>
+
+        <td class="text-center align-middle">
+          {{ form_row(form.cantidad_kids) }}
+        </td>
+        <td class="text-center align-middle">
+          {{ form_row(form.fecha_evento) }}
+        </td>
+      </tr>
+    </tbody>
+    {#
+    <tfoot>
+      <tr>
+        <td class="text-left align-middle">
+          {% if totalReserva == 0 %}
+          <p><span>Total: Free Tour</span></p>
+          {% else %}
+          <p>Total: {{ totalReserva / 100 | number_format(2, '.') }} €</p>
+          {% endif %}
+        </td>
+      </tr>
+    </tfoot>
+    #}
+  </table>
+  
+    <div class="row col-12">
+      <div class="col-6">
+        <div class="buttons">
+          <a href="#" class="btn-secondary me-3">
+            Vaciar el carrito
+          </a>
+          <a href="{{ path('home') }}" class="btn-tertiary"> Ver más tours </a>
+        </div>
+      </div>
+      <div class="col-6 text-end">
+        <button type="submit" class="btn-primary me-3">Validar pedido</button>
+        
+
+        {{ form_end(form) }}
+      </div>
+    </div>
+  </div>
+  <!-- Fin del bloque de formulario de datos personales -->
+
+
+  {% else %}
+  <p>Tu carrito está vacío</p>
+  {% endif %}
+</div>
+{% endblock %} 

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %} {% block title %} Devis reserva {% endblock %} {%
+block body %}
+<div id="main-container" class="container my-5">
+  <div class="titulo__reservas">
+    <h2>Resumen de reserva</h2>
+  </div>
+  <div class="reserva-container">
+    <img
+      src="{{ asset('uploads/images/' ~ tour.imagen) }}"
+      alt="{{ tour.titulo }}"
+      width="350px"
+      height="280px"
+    />
+
+    {% if app.user.reservas is not empty %}
+    <div class="detalles-reserva">
+      <ul>
+        <h3>{{ tour.titulo }}</h3>
+        <li>
+          <p class="card-title">N°. reserva: {{ reserva.referencia }}</p>
+        </li>
+
+        {% for detalle in reserva.detallesReservas %}
+        <li>
+          <p class="card-title">
+            Fecha del tour: {{ detalle.fechaEvento|date('d/m/y') }}
+          </p>
+        </li>
+        <li>
+          <p class="card-title">Adultos: {{ detalle.cantidadAdultos }}</p>
+        </li>
+        <li>
+          <p class="card-title">Niños: {{ detalle.cantidadKids }}</p>
+        </li>
+
+        {% if detalle.totalReserva == 0 %}
+        <li>
+          <p class="card-title">Total: Free Tour</p>
+        </li>
+        {% else %}
+        <li>
+          <p class="card-title">
+            Total: {{ detalle.totalReserva/100|number_format(2, '.') }} €
+          </p>
+        </li>
+        {% if tour.precio != 0 %}
+        <div class="button">
+          <a href="#" class="btn-primary me-3">Proceder al pago</a>
+        </div>
+        {% endif %} {% endif %} {% endfor %}
+      </ul>
+    </div>
+    {% else %}
+    <p>No hay reservas disponibles.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %} {% block javascripts %}
+<script>
+  const selectForm = document.querySelector("#selectDatosClienteReserva");
+  const optionsForm = document.querySelector("#optionsDatosClienteReserva");
+  optionsForm.addEventListener("click", (event) => {
+    event.stopPropagation(); // Elimina esta línea
+  });
+
+  selectForm.addEventListener("click", () => {
+    selectForm.classList.toggle("active");
+    optionsForm.classList.toggle("active");
+    optionsForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+</script>
+{% endblock %}

@@ -6,7 +6,7 @@ body %}
     {{ message }}
   </div>
   {% endfor %}
-  <h1 class="text-center h3 my-3 pb-3 border-bottom border-dark">Contacto</h1>
+  <h1 class="text-center w-100 h3 my-3 pb-3 border-bottom border-dark">Contacto</h1>
   <div class="container">
     {{ form_start(form, { action: path("contacto") }) }}
     <div class="row mx-3">
@@ -30,4 +30,5 @@ body %}
     {# {% if app.user %} {% include 'app/_side_menu.html.twig' %} {% endif %} #}
   </div>
 </div>
+<script src="{{ asset('assets/js/menu2.js') }}"></script>
 {% endblock %} {% set currentPage = 'contacto' %}

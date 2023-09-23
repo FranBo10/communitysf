@@ -1,9 +1,9 @@
-<div id="header-2">
-  <div class="logo">
+<header id="navigation-2" class="navigation-2">
+  <div class="logo-1">
     <a href="{{ path('home') }}">Comm<span>unity</span></a>
   </div>
   <nav>
-    <ul class="menu-nav">
+    <ul>
       <li>
         <a href="{{ path('home') }}">Home</a>
       </li>
@@ -17,7 +17,7 @@
       </li>
       {% if app.user %}
       <li>
-        <div class="icon-nav">
+        <div class="icon-nav-1">
           <img
             class="rounded-circle"
             src="{{ asset('uploads/images/avatars/' ~ app.user.avatar ~ '.jpg') }}"
@@ -30,12 +30,12 @@
           <ul>
             {% if app.user %}
             <li>
-              <a href="{{ path('cuenta') }}">Mi cuenta</a>
+              <a href="#">Mi cuenta</a>
               <i class="fas fa-user"></i>
             </li>
             <hr />
             <li>
-              <a href="{{ path('reserva') }}">Reservas</a>
+              <a href="#">Reservas</a>
               <i class="fas fa-clipboard-list"></i>
             </li>
             <hr />
@@ -113,7 +113,7 @@
       </li>
       {% endif %}
       <li>
-        <a href="{{ path('app_cart') }}" type="button">
+        <a href="#" type="button">
           <i class="bi bi-cart3"></i>
           {% if app.session.get('qt') > 0 %}
           <span class="translate-end badge rounded-pill bg-warning badge-sm"
@@ -124,136 +124,133 @@
         </a>
       </li>
     </ul>
-    <div class="menu-btn">
-      <i class="fa fa-bars"></i>
-    </div>
-    <div class="close-btn">
-      <i class="fa fa-times"></i>
-    </div>
-    <div class="menu-mobile">
-      {% if app.user %}
-      <div class="profile">
-        <div class="image">
-          <img
-            src="{{ asset('uploads/images/avatars/' ~ app.user.avatar ~ '.jpg') }}"
-            alt="{{ app.user.avatar }}"
-          />
-        </div>
-        <div class="name">
-          <span>{{ app.user.nombre | title }}</span>
-        </div>
+  </nav>
+  <div class="menu-btn">
+    <i class="fa fa-bars"></i>
+  </div>
+  <div class="close-btn">
+    <i class="fa fa-times"></i>
+  </div>
+  <div class="menu-mobile">
+    {% if app.user %}
+    <div class="profile">
+      <div class="image">
+        <img
+          src="{{ asset('uploads/images/avatars/' ~ app.user.avatar ~ '.jpg') }}"
+          alt="{{ app.user.avatar }}"
+        />
       </div>
-      {% endif %}
-      <div class="menu-items">
-        <ul>
-          <li>
-            <div class="item">
-              <a href="{{ path('home') }}">
-                <div class="icon">
-                  <i class="fas fa-flag-checkered"></i>
-                </div>
-                <div class="title">Ho<span>me</span></div>
-              </a>
-            </div>
-          </li>
-
-          <div class="item-separator"></div>
-
-          <li>
-            <div class="item">
-              <a href="{{ path('contacto') }}">
-                <div class="icon"><i class="fas fa-comments"></i></div>
-                <div class="title">Con<span>tacto</span></div>
-              </a>
-            </div>
-          </li>
-
-          <div class="item-separator"></div>
-
-          {% if app.user %}
-
-          <li>
-            <div class="item">
-              <a href="{{ path('cuenta') }}">
-                <div class="icon"><i class="fas fa-fingerprint"></i></div>
-                <div class="title">Mi cu<span>enta</span></div>
-              </a>
-            </div>
-          </li>
-
-          <div class="item-separator"></div>
-
-          <li>
-            <div class="item">
-              <a href="{{ path('reserva') }}">
-                <div class="icon"><i class="fas fa-clipboard-list"></i></div>
-                <div class="title">Res<span>ervas</span></div>
-              </a>
-            </div>
-          </li>
-
-          <div class="item-separator"></div>
-
-          <li>
-            <div class="item">
-              <a href="{{ path('app_logout') }}">
-                <div class="icon"><i class="fas fa-globe"></i></div>
-                <div class="title">Desc<span>onexion</span></div>
-              </a>
-            </div>
-          </li>
-
-          {% else %}
-          <li>
-            <div class="item">
-              <a href="{{ path('app_login') }}">
-                <div class="icon"><i class="fas fa-user"></i></div>
-                <div class="title">Lo<span>gin</span></div>
-              </a>
-            </div>
-          </li>
-
-          <div class="item-separator"></div>
-
-          <li>
-            <div class="item">
-              <a href="{{ path('registro') }}">
-                <div class="icon"><i class="fas fa-clipboard"></i></div>
-                <div class="title">Regi<span>strate</span></div>
-              </a>
-            </div>
-          </li>
-          {% endif %}
-        </ul>
+      <div class="name">
+        <span>{{ app.user.nombre | title }}</span>
       </div>
     </div>
-    <div
-      class="modal fade"
-      id="registro"
-      tabindex="-1"
-      aria-labelledby="inscriptionLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div
-            class="modal-body border border-primary rounded m-0 p-2 text-black"
-          >
-            <div class="p-3">
-              {{
-                render(
-                  controller(
-                    "App\\Controller\\RegistrationController::registro"
-                  )
-                )
-              }}
-            </div>
+    {% endif %}
+    <div class="menu-items">
+      <ul>
+        <li>
+          <div class="item">
+            <a href="{{ path('home') }}">
+              <div class="icon">
+                <i class="fas fa-flag-checkered"></i>
+              </div>
+              <div class="title">Ho<span>me</span></div>
+            </a>
+          </div>
+        </li>
+
+        <div class="item-separator"></div>
+
+        <li>
+          <div class="item">
+            <a href="{{ path('contacto') }}">
+              <div class="icon"><i class="fas fa-comments"></i></div>
+              <div class="title">Con<span>tacto</span></div>
+            </a>
+          </div>
+        </li>
+
+        <div class="item-separator"></div>
+
+        {% if app.user %}
+
+        <li>
+          <div class="item">
+            <a href="#">
+              <div class="icon"><i class="fas fa-fingerprint"></i></div>
+              <div class="title">Mi cu<span>enta</span></div>
+            </a>
+          </div>
+        </li>
+
+        <div class="item-separator"></div>
+
+        <li>
+          <div class="item">
+            <a href="#">
+              <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+              <div class="title">Res<span>ervas</span></div>
+            </a>
+          </div>
+        </li>
+
+        <div class="item-separator"></div>
+
+        <li>
+          <div class="item">
+            <a href="{{ path('app_logout') }}">
+              <div class="icon"><i class="fas fa-globe"></i></div>
+              <div class="title">Desc<span>onexion</span></div>
+            </a>
+          </div>
+        </li>
+
+        {% else %}
+        <li>
+          <div class="item">
+            <a href="{{ path('app_login') }}">
+              <div class="icon"><i class="fas fa-user"></i></div>
+              <div class="title">Lo<span>gin</span></div>
+            </a>
+          </div>
+        </li>
+
+        <div class="item-separator"></div>
+
+        <li>
+          <div class="item">
+            <a href="{{ path('registro') }}">
+              <div class="icon"><i class="fas fa-clipboard"></i></div>
+              <div class="title">Regi<span>strate</span></div>
+            </a>
+          </div>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="registro"
+    tabindex="-1"
+    aria-labelledby="inscriptionLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div
+          class="modal-body border border-primary rounded m-0 p-2 text-black"
+        >
+          <div class="p-3">
+            {{
+              render(
+                controller("App\\Controller\\RegistrationController::registro")
+              )
+            }}
           </div>
         </div>
       </div>
     </div>
-  </nav>
-</div>
+  </div>
+</header>
 
-<script src="{{ asset('assets/js/menu2.js') }}"></script>
-
+<script src="{{ asset('build/js/app.js') }}"></script>

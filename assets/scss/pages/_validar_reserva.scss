@@ -1,0 +1,79 @@
+.reserva-container {
+    @include flexCenter(row);
+    margin: auto; 
+    color: $color-black;
+    border: 1px solid $color-gray-dark;
+    border-radius: $border-radius;  
+    padding: $padding; 
+}
+
+.detalles-reserva{
+    @include flexColumn();
+
+    ul{
+        list-style-type: none;
+    }
+
+    ul h3 {
+        margin-top: 2rem;
+    }
+
+    ul li {        
+    margin: 20px 0;
+    }
+
+    ul li p {
+        font-size: $main-font-size;   
+    }
+}
+
+.button{
+    text-align: center;
+} 
+  
+.datos_form_reserva-container {  
+    width: 80%;
+    margin:auto ;
+    height: 35px;
+    color: $color-gray-light;
+    background-color: $color-tertiary;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 1rem;
+    position: relative;
+    padding: 0.5rem;
+  }
+  
+  .datos_form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p{
+        font-size: $main-font-size/1.25;
+        
+    }  
+  }
+
+  
+  .options_datos_reserva {
+    width: 100%;
+    background-color: #fff;
+    padding: 5px;
+    display: flex; /* Usar flexbox para distribuir las opciones en una fila */
+    flex-wrap: wrap; /* Permitir que las opciones se envuelvan en múltiples filas */
+    max-height: 300px;
+    overflow-y: auto;
+    gap: 10px; /* Espacio entre las opciones */
+  }
+  
+  .options_datos_reserva.active {
+    display: none;
+  }
+
+  .user_datos_reserva {
+      width: 100%;
+      height: 40vh;
+      margin: auto;
+      color: $color-black;
+      border: 1px solid $color-gray-dark;
+      
+  }

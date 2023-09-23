@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %} {% block title %}Bienvenido{% endblock
-%} {% block body %}
+%} {% block header %}
+{% include 'nav/_menu_nav.html.twig' %}
+{% endblock %} {% block body %}
 <section class="hero">
   <div class="hero-background">
     <div class="hero-content">
@@ -34,17 +36,17 @@
                 <h5>Precio: {{ item.precio/100|number_format(2, '.') }} €</h5>
               {% endif %}
               <div class="card-btn">
-                <a href="{{ path('tour', { id: item.id }) }}" class="btn-secondary">
+                <a href="{{ path('tour', { id: item.id }) }}" class="btn-secondary-card">
                   Más información
                 </a>
                 {% if app.user %}
-                  <a href="#" class="btn-primary">
-                    Añadir a la cesta
-                  </a>
+                <a href="{{ path('show', { id: item.id }) }}" class="btn-primary-card">
+                  Añadir a la cesta
+                </a>
                 {% else %}
-                  <a href="#" class="btn-primary">
-                    Añadir a la cesta
-                  </a>
+                <a href="{{ path('app_login') }}" class="btn-primary-card">
+                  Añadir a la cesta
+                </a>
                 {% endif %}
               </div>
             </div>

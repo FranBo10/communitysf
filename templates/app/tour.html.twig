@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %} {% block title %} {% for slider in sliders %}
-{# {{ slider.tours.titulo }} #}
-{% endfor %} {% endblock %} {% block body %}
+{{ slider.titulo }}
+{% endfor %} {% endblock %} {% block header %} {% endblock %} {% block body %}
 <div class="fixed-nav">{% include 'nav/_menu_nav.html.twig' %}</div>
 <div class="carousel-container">
   <div
@@ -8,27 +8,6 @@
     class="carousel slide"
     data-bs-ride="carousel"
   >
-    {#
-    <div class="carousel-indicators">
-      {% for slider in sliders %}
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="{{ loop.index0 }}"
-        {%
-        if
-        loop.first
-        %}
-        class="active"
-        aria-current="true"
-        {%
-        endif
-        %}
-        aria-label="Slide {{ loop.index }}"
-      ></button>
-      {% endfor %}
-    </div>
-    #}
     <div class="carousel-inner">
       {% for slider in sliders %}
       <div class="carousel-item{% if loop.first %} active{% endif %}">
@@ -41,7 +20,7 @@
               {{ slider.titulo }}
             </h3>
             <h2 class="animation content-slider-subtitle">
-              {{ tours.titulo }}
+              {{ tour.titulo }}
             </h2>
           </div>
         </div>
@@ -89,11 +68,11 @@
 </div>
 <div id="container-detalles">
   <div id="descripcion" class="container-detalles">
-    <h3>{{ tours.titulo }}</h3>
+    <h3>{{ tour.titulo }}</h3>
     <div class="detalle-descripcion">
-      <p>{{ tours.descripcionCorta }}</p>
+      <p>{{ tour.descripcionCorta }}</p>
       <div class="descripcion-hidden">
-        <p>{{ tours.descripcionLarga | raw }}</p>
+        <p>{{ tour.descripcionLarga | raw }}</p>
       </div>
       <div class="descripcion-container">
         <a href="#" id="mostrar-link" class="btn-description"
@@ -199,8 +178,8 @@
             </li>
             <li>
               <p>
-                Para cualquier otra duda,
-                {# <a href="{{ path('contacto') }}">contacta con nosotros</a> #}
+                Para cualquier otra duda, {#
+                <a href="{{ path('contacto') }}">contacta con nosotros</a> #}
               </p>
             </li>
           </ul>
@@ -233,14 +212,47 @@
       </div>
     </div>
   </div>
-  {# <div class="calendar">
+  {#
+  <div class="calendar">
     <img
       src="{{ asset('uploads/images/montmartre.jpg') }}"
       alt=""
       width="250"
       height="350"
     />
-  </div> #}
+  </div>
+  #}
 </div>
-<script src="{{ asset('assets/js/tour.js') }}"></script>
-{% endblock %}
+{% endblock %} 
+{# {% block javascripts %}
+
+<script>
+  const mostrarLink = document.getElementById("mostrar-link");
+  const ocultarLink = document.getElementById("ocultar-link");
+  const descripcionHidden = document.querySelector(".descripcion-hidden");
+
+  mostrarLink.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (descripcionHidden.classList.contains("descripcion-visible")) {
+      descripcionHidden.classList.remove("descripcion-visible");
+      mostrarLink.textContent = "Ver descripción completa";
+      ocultarLink.classList.add("hidden");
+    } else {
+      descripcionHidden.classList.add("descripcion-visible");
+      mostrarLink.textContent = "Ocultar descripción";
+      ocultarLink.display = "block";
+    }
+  });
+
+  reduceLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    descripcionHidden.classList.remove("descripcion-visible");
+    mostrarLink.textContent = "Ver descripción completa";
+    ocultarLink.style.display = "none";
+  });
+</script>
+
+<script src="{{ asset('build/js/app.js') }}"></script>
+
+{% endblock %} #}

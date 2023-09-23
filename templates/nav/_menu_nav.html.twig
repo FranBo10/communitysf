@@ -2,7 +2,7 @@
   <div class="logo">
     <a href="{{ path('home') }}">Comm<span>unity</span></a>
   </div>
-  <nav class="menu-nav">
+  <nav>
     <ul>
       <li>
         <a href="{{ path('home') }}">Home</a>
@@ -30,12 +30,12 @@
           <ul>
             {% if app.user %}
             <li>
-              <a href="#">Mi cuenta</a>
+              <a href="{{ path('cuenta') }}">Mi cuenta</a>
               <i class="fas fa-user"></i>
             </li>
             <hr />
             <li>
-              <a href="#">Reservas</a>
+              <a href="{{ path('reservas') }}">Reservas</a>
               <i class="fas fa-clipboard-list"></i>
             </li>
             <hr />
@@ -117,12 +117,12 @@
           <i class="bi bi-cart3"></i>
           {% if app.session.get('qt') > 0 %}
           <span class="translate-end badge rounded-pill bg-warning badge-sm"
-            >{{ app.session.get("qt") }}
-            <span class="visually-hidden">unread messages</span>
-          </span>
-          {% endif %}
-        </a>
-      </li>
+          >{{ app.session.get("qt") }}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+        {% endif %}
+      </a>
+    </li>
     </ul>
   </nav>
   <div class="menu-btn">
@@ -174,7 +174,7 @@
 
         <li>
           <div class="item">
-            <a href="#">
+            <a href="{{ path('cuenta') }}">
               <div class="icon">
                 <i class="fas fa-fingerprint"></i>
               </div>

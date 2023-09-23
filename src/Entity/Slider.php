@@ -30,7 +30,7 @@ class Slider
     private ?string $titulo = null;
     
     #[ORM\ManyToOne(inversedBy: 'sliders')]
-    private ?Tour $tours = null;
+    private ?Tour $tour = null;
 
 
     public function getId(): ?int
@@ -88,12 +88,12 @@ class Slider
 
     public function getTour(): ?Tour
     {
-        return $this->tours;
+        return $this->tour;
     }
 
-    public function setTour(?Tour $tours): static
+    public function setTour(?Tour $tour): static
     {
-        $this->tours = $tours;
+        $this->tour = $tour;
 
         return $this;
     }

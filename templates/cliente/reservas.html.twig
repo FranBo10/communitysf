@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %} {% block title %} Reservas {% endblock %} {%
+block header %} {% include 'nav/_menu2_nav.html.twig' %} {% endblock %} {% block
+body %}
+<div id="main-container" class="reservas my-5">
+  <div class="titulo__reservas">
+    <h2>Mis reservas</h2>
+  </div>
+
+  {% if app.user.reservas is not empty %}
+  <div class="cards__reservas">
+    {% for reserva in app.user.reservas %}
+    <article class="card__reservas">
+      <img src="{{ asset('uploads/images/' ~ reserva.tour.imagen) }}" alt="" />
+      <div class="reservas-detalles">
+        <h4>{{ reserva.tour.titulo }}</h4>
+        <ul>
+          {% for detalle in reserva.detallesReservas %}
+          <li>
+            Precio: {% if detalle.totalReserva == 0 %} Free Tour {% else %}
+            {{ detalle.totalReserva/100|number_format(2, '.') }} € {% endif %}
+          </li>
+          <li>
+            Fecha: {{ reserva.fechaEvento|date("d/m/Y") }}
+          </li>
+          <li>Cantidad de adultos: {{ detalle.cantidadAdultos }}</li>
+          <li>Cantidad de niños: {{ detalle.cantidadKids }}</li>
+        </ul>
+      </div>
+    </article>
+    {% endfor %}
+    {% endfor %} 
+  </div>
+  {% else %}
+  <div class="text-center mt-5">
+    <h4>Te invitamos a realizar tu reserva</h4>
+    <a href="{{ path('home') }}" class="btn-primary">Volver a inicio</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -26,9 +26,10 @@
       crossorigin="anonymous"
     />
   </head>
+  
   <body>
-    {% include 'nav/_menu_nav.html.twig' %} {% block body %}{% endblock %} {%
-    block javascripts %}
+    {% block header %} {% include 'nav/_menu2_nav.html.twig' %} {% endblock %}
+    {% block body %}{% endblock %} {% block javascripts %}
     {{ encore_entry_script_tags("js/app") }}
 
     {#

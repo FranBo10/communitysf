@@ -1,0 +1,100 @@
+.reservas {
+  background-color: #f4f4f4;
+  height: 100%;
+  width: 100%;
+}
+
+
+.titulo__reservas {
+  font-size: 70px;
+  font-weight: bold;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+
+
+.cards__reservas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* Añadir espaciado entre las tarjetas */
+  width: 100%;
+  padding: 0 2rem; /* Ajustar el espaciado horizontal */
+  margin: 0 auto; /* Centrar los contenedores en el medio */
+  font-size: $main-font-size; /* Tamaño de fuente relativo */
+  height: auto; /* Altura automática para adaptarse al contenido */
+  
+}
+
+.card__reservas {
+  display: flex;
+  border: 1px solid $color-primary;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  color: #333; 
+  height: 200px;
+  overflow: hidden;
+}
+
+.card__reservas:hover {
+  transform: scale(1.02);
+}
+
+.card__reservas img {
+  max-width: 50%; /* La imagen no superará el ancho del contenedor */
+  height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
+}
+
+.reservas-detalles {  
+  padding: 10px 15px;
+
+  h4{
+    font-weight: bold;
+    text-align: center;
+
+  }
+}
+
+
+.reservas-detalles ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;  
+  gap: 10px;
+}
+
+.reservas-detalles ul li {
+  margin: 0;
+  font-size: clamp(14px, 6vw, 10px);
+}
+
+.reservas-detalles p {
+  margin: 5px 0;
+  font-size: $main-font-size;
+}
+
+@include media(tablet) {
+  .cards__reservas {
+    grid-template-columns: 1fr; /* Cambia a una tarjeta por fila en pantallas pequeñas */
+  } 
+  
+  .card__reservas {
+    margin: auto;
+    width: 80%;
+  }
+}
+
+@include media(phone) {
+  .cards__reservas {
+    grid-template-columns: 1fr; /* Cambia a una tarjeta por fila en pantallas pequeñas */
+  } 
+  
+  .card__reservas {
+    margin: auto;
+    width: 100%;
+  }
+}

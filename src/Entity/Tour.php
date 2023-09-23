@@ -37,10 +37,10 @@ class Tour
     #[ORM\Column]
     private ?int $stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'tours', targetEntity: Reserva::class)]
+    #[ORM\OneToMany(mappedBy: 'tour', targetEntity: Reserva::class)]
     private Collection $reservas;
 
-    #[ORM\OneToMany(mappedBy: 'tours', targetEntity: Slider::class)]
+    #[ORM\OneToMany(mappedBy: 'tour', targetEntity: Slider::class)]
     private Collection $sliders;
 
     public function __construct()
@@ -149,7 +149,7 @@ class Tour
     {
         if (!$this->reservas->contains($reserva)) {
             $this->reservas->add($reserva);
-            $reserva->setTours($this);
+            $reserva->setTour($this);
         }
 
         return $this;
@@ -159,8 +159,8 @@ class Tour
     {
         if ($this->reservas->removeElement($reserva)) {
             // set the owning side to null (unless already changed)
-            if ($reserva->getTours() === $this) {
-                $reserva->setTours(null);
+            if ($reserva->getTour() === $this) {
+                $reserva->setTour(null);
             }
         }
 
@@ -195,5 +195,10 @@ class Tour
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->titulo;
     }
 }

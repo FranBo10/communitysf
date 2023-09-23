@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use DateInterval;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
@@ -58,12 +60,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $token_life_time = null;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Reserva::class)]
+    private Collection $reservas;
+
     public function __construct()
     {
         $this->fecha_registro = new \DateTime('now');
         $this->isVerified = false;
         //P1D le decimos que el tiempo de validacion del token sera de 1 dia
         $this->token_life_time = (new \DateTime('now'))->add(new DateInterval("P1D"));
+        $this->reservas = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -240,6 +246,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTokenLifeTime(\DateTimeInterface $token_life_time): static
     {
         $this->token_life_time = $token_life_time;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reserva>
+     */
+    public function getReservas(): Collection
+    {
+        return $this->reservas;
+    }
+
+    public function addReserva(Reserva $reserva): static
+    {
+        if (!$this->reservas->contains($reserva)) {
+            $this->reservas->add($reserva);
+            $reserva->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReserva(Reserva $reserva): static
+    {
+        if ($this->reservas->removeElement($reserva)) {
+            // set the owning side to null (unless already changed)
+            if ($reserva->getUser() === $this) {
+                $reserva->setUser(null);
+            }
+        }
 
         return $this;
     }

@@ -35,19 +35,19 @@
   }
   
   .logo a span {
-    color: #18BB9C;
+    color: $color-primary;
     font-weight: 1000;
   }
   
   
   nav .nav-active {
     position: sticky;
-    background:#18BB9C;
+    background:$color-primary;
   }
   
   nav ul:first-child {
-    color: #18BB9C;
-    font-weight: 900;
+    color: $color-primary;
+    font-weight: 1000;
   }
   
   nav ul li:last-child {
@@ -103,7 +103,7 @@
     transition: all 300ms ease;
     text-decoration: none;
     letter-spacing: 2px;
-    font-weight: 500;
+    font-weight: bold;
     transition: 0.6s;
     margin-top: 15px;
   }
@@ -288,14 +288,13 @@
   }
   
   nav ul li ul li i {
-    color: #18BB9C;
+    color: $color-primary;
     font-size: 1.2rem;
   }
   
   nav ul li ul li a:hover {
-    color: #000;
     transform: scale(1.1);
-    color: #18BB9C;
+    color: $color-black;
     transition: all 300ms ease;
   }
 
@@ -322,7 +321,7 @@
 }
 
 .menu-items .item a:hover {
-    color: #18bb9c;
+    color: $color-primary;
 }
 
 .menu-items .item .icon,
@@ -340,14 +339,14 @@
 }
 
 .menu-items .item a:hover {
-    background-color: #18bb9c;
+    background-color: $color-primary;
     transform: scale(1.1);
     transition: all 300ms ease;
 }
 
 @include media(tablet) {
     #navigation {    
-        background-color: #18BB9C;
+        background-color: $color-primary;
         transition: background-color 0.3s ease;
     }
     
@@ -364,8 +363,9 @@
         color: #000;
     }
 
-    .icon-nav {
-        color: #000;
+    .icon-nav a {
+      color: $color-black;
+      font-weight: 900;
     }
 
     .menu-btn, .close-btn {
@@ -391,7 +391,7 @@
         top: 500px;
         left: 0;
         margin-top: 50px;
-        background-color: #18BB9C;
+        background-color: $color-primary;
         padding-top: 10px;
         opacity: 0;
         pointer-events: none;
@@ -428,7 +428,7 @@
       }
     
       .menu-items .item a:hover {
-        color: #18bb9c;
+        color: $color-primary;
       }
     
       .menu-items .item .icon {
@@ -453,7 +453,7 @@
       }
     
       .menu-items .item a:hover {
-        background-color: #18bb9c;
+        background-color: $color-primary;
         transform: scale(1.1);
         transition: all 300ms ease;
       }

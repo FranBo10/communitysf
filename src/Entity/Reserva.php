@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ReservaRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -14,18 +16,6 @@ class Reserva
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $cantidad_total = null;
-
-    #[ORM\Column]
-    private ?int $cantidad_adultos = null;
-
-    #[ORM\Column]
-    private ?int $cantidad_kids = null;
-
-    #[ORM\Column]
-    private ?float $total_reserva = null;
-
     #[ORM\Column(length: 100)]
     private ?string $estado = null;
 
@@ -36,61 +26,34 @@ class Reserva
     private ?\DateTimeInterface $fecha_registro = null;
 
     #[ORM\ManyToOne(inversedBy: 'reservas')]
-    private ?Tour $tours = null;
+    private ?Tour $tour = null;
 
     #[ORM\ManyToOne(inversedBy: 'reservas')]
     private ?Guia $guia = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $fecha_evento = null;
+
+    #[ORM\ManyToOne(inversedBy: 'reservas')]
+    private ?User $user = null;
+
+    #[ORM\ManyToMany(targetEntity: DetallesReserva::class, mappedBy: 'reservas', cascade: ['persist'])]
+    private Collection $detallesReservas;
+
+    public function __construct()
+    {
+        $this->fecha_registro = new \DateTimeImmutable();
+        $this->detallesReservas = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCantidadTotal(): ?int
+    public function setId($id)
     {
-        return $this->cantidad_total;
-    }
-
-    public function setCantidadTotal(int $cantidad_total): static
-    {
-        $this->cantidad_total = $cantidad_total;
-
-        return $this;
-    }
-
-    public function getCantidadAdultos(): ?int
-    {
-        return $this->cantidad_adultos;
-    }
-
-    public function setCantidadAdultos(int $cantidad_adultos): static
-    {
-        $this->cantidad_adultos = $cantidad_adultos;
-
-        return $this;
-    }
-
-    public function getCantidadKids(): ?int
-    {
-        return $this->cantidad_kids;
-    }
-
-    public function setCantidadKids(int $cantidad_kids): static
-    {
-        $this->cantidad_kids = $cantidad_kids;
-
-        return $this;
-    }
-
-    public function getTotalReserva(): ?float
-    {
-        return $this->total_reserva;
-    }
-
-    public function setTotalReserva(float $total_reserva): static
-    {
-        $this->total_reserva = $total_reserva;
-
+        $this->id = $id;
         return $this;
     }
 
@@ -130,14 +93,14 @@ class Reserva
         return $this;
     }
 
-    public function getTours(): ?Tour
+    public function getTour(): ?Tour
     {
-        return $this->tours;
+        return $this->tour;
     }
 
-    public function setTours(?Tour $tours): static
+    public function setTour(?Tour $tour): static
     {
-        $this->tours = $tours;
+        $this->tour = $tour;
 
         return $this;
     }
@@ -150,6 +113,58 @@ class Reserva
     public function setGuia(?Guia $guia): static
     {
         $this->guia = $guia;
+
+        return $this;
+    }
+
+    public function getFechaEvento(): ?\DateTimeInterface
+    {
+        return $this->fecha_evento;
+    }
+
+    public function setFechaEvento(\DateTimeInterface $fecha_evento): static
+    {
+        $this->fecha_evento = $fecha_evento;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, DetallesReserva>
+     */
+    public function getDetallesReservas(): Collection
+    {
+        return $this->detallesReservas;
+    }
+
+    public function addDetallesReserva(DetallesReserva $detallesReserva): self
+    {
+        if (!$this->detallesReservas->contains($detallesReserva)) {
+            $this->detallesReservas[] = $detallesReserva;
+            $detallesReserva->addReserva($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetallesReserva(DetallesReserva $detallesReserva): self
+    {
+        if (!$this->detallesReservas->contains($detallesReserva)) {
+
+            $detallesReserva->removeReserva($this);
+        }
 
         return $this;
     }

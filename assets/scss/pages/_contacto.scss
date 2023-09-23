@@ -1,7 +1,6 @@
 #main-container {
     color: #333;
-    width: calc(100% - var(--width-collapsed));
-    margin-left: var(--width-collapsed);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Opcional: para centrar horizontalmente */

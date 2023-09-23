@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %} {% block title %}Mi cuenta{% endblock %} 
+{% block body %}
+
+<div id="main-container" class="container my-5">
+  <h2>Mi cuenta</h2>
+  <div class="cuenta-container">
+    <div class="cuenta-elementos">
+      <div class="cuenta-imagen">
+        <img
+          src="{{ asset('uploads/images/avatars/' ~ app.user.avatar ~ '.jpg') }}"
+          alt="{{ app.user.avatar }}"
+        />
+      </div>
+      <div class="cuenta-detalles">
+        <ul>
+          <li>{{ app.user.nombre }} {{ app.user.apellidos }}</li>
+          <li>{{ app.user.telefono }}</li>
+          <li>{{ app.user.email }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="datos_perso-container">
+    <a href="">
+      <div class="inner">Datos personales</div>
+    </a>
+    <i class="fas fa-plus"></i>
+  </div>
+  <div class="datos_factu-container">
+    <a href="">
+      <div class="inner">Datos facturación</div>
+    </a> 
+    <i class="fas fa-plus"></i>
+  </div>
+</div>
+{# {% include 'app/_side_menu.html.twig' %}  #}
+{% endblock %}{% set currentPage =
+'cuenta' %}
