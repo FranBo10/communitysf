@@ -20,7 +20,7 @@ body %}
             {{ detalle.totalReserva/100|number_format(2, '.') }} € {% endif %}
           </li>
           <li>
-            Fecha: {{ reserva.fechaEvento|date("d/m/Y") }}
+            Fecha: {{ detalle.fechaEvento|date("d/m/Y") }}
           </li>
           <li>Cantidad de adultos: {{ detalle.cantidadAdultos }}</li>
           <li>Cantidad de niños: {{ detalle.cantidadKids }}</li>

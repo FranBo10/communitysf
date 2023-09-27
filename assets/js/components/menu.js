@@ -26,7 +26,7 @@ const closeBtn = document.querySelector(".close-btn");
 const menuMobile = document.querySelector(".menu-mobile");
 const navBarSpan = document.querySelector(".logo a span");
 const navBarElem = document.querySelector("nav ul li a");
-const navBarUserName = document.querySelector(".menu-nav .icon-nav a");   
+const navBarUserName = document.querySelector(".icon-nav a");   
 const mobileLinks = document.querySelectorAll(".menu-mobile li");
 
 menuBtn.addEventListener("click", () => {

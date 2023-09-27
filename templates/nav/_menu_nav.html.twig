@@ -21,7 +21,7 @@
           <img
             class="rounded-circle"
             src="{{ asset('uploads/images/avatars/' ~ app.user.avatar ~ '.jpg') }}"
-            alt=""
+            alt="avatar"
             style="width: 45px; height: 45px"
           />
           <a>{{ app.user.nombre }}</a>
@@ -89,7 +89,11 @@
                       <input type="checkbox" name="_remember_me" />
                       Recuérdame
                     </label>
-                    <small><a href="#">He olvidado mi contraseña</a></small>
+                    <small
+                      ><a href="{{ path('app_forgot_password_request') }}"
+                        >He olvidado mi contraseña</a
+                      ></small
+                    >
                   </div>
                   <div class="button-login">
                     <button class="btn-primary" type="submit">
@@ -117,12 +121,12 @@
           <i class="bi bi-cart3"></i>
           {% if app.session.get('qt') > 0 %}
           <span class="translate-end badge rounded-pill bg-warning badge-sm"
-          >{{ app.session.get("qt") }}
-          <span class="visually-hidden">unread messages</span>
-        </span>
-        {% endif %}
-      </a>
-    </li>
+            >{{ app.session.get("qt") }}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+          {% endif %}
+        </a>
+      </li>
     </ul>
   </nav>
   <div class="menu-btn">
@@ -135,12 +139,18 @@
     {% if app.user %}
     <div class="profile">
       <div class="image">
-        <img src="#" alt="#" />
+        <img
+          src="{{ asset('uploads/images/avatars/' ~ app.user.avatar ~ '.jpg') }}"
+          alt="avatar"
+        />
       </div>
       <div class="name">
-        <span>#</span>
+        <span>{{ app.user.nombre }}</span>
       </div>
     </div>
+
+    <div class="item-separator"></div>
+    
     {% endif %}
     <div class="menu-items">
       <ul>

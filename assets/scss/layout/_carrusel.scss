@@ -53,11 +53,11 @@
   }
   
   .content-slider-title {
-    font-size: 40px;
+    font-size: $big-font-size;
   }
   
   .content-slider-subtitle {
-    font-size: 20px;
+    font-size: $main-font-size;
   }
   
   .carousel-control-next,
@@ -87,8 +87,8 @@
   }
   
   .detalle-tour > a {
-    font-size: 2rem;
-    color: #fff;
+    font-size: $big-font-size;
+    color: $color-white;
     text-decoration: none;
   }
   
@@ -130,6 +130,10 @@
   .container-detalles {
     padding: 0px 40px;
   }
+
+  .detalle-descripcion {
+    font-size: $main-font-size;
+  }
   
   .descripcion-hidden {
     max-height: 0;
@@ -141,7 +145,7 @@
   .descripcion-visible {
     max-height: 1000px; 
     opacity: 1;
-    margin-top: -30px;
+    margin-top: -20px;
     transition: max-height 0.5s ease, opacity 0.5s ease;
   }
   .descripcion-container {
@@ -151,8 +155,8 @@
   
   .descripcion-container a {
     text-decoration: none;
-    color: #18BB9C;
-    font-size: 0.8rem;
+    color: $color-primary;
+    font-size: $main-font-size;
   }
   
   
@@ -167,16 +171,22 @@
     margin-top: 15px;
   }
   
-  .detalle-precio h3 {
-    padding: 1rem 0;
+  .detalle-precio {
+    h3 {
+      padding: $padding 0;
+    }
+
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .container-detalles > h3 {
-    padding: 1rem 0;
+    padding: $padding 0;
   }
   
   .detalle-general h3 {
-    padding: 1rem 0;
+    padding: $padding 0;
   
   }
   
@@ -184,83 +194,115 @@
     display: flex;
     align-items: center;
     gap: 7px;
+
+    i {
+     font-size: $medium-font-size;
+     color: $color-primary;
+   }
+   h5 {
+     margin-top: 5px;
+   }
   }
-  
-  .detalle-titulo i {
-    font-size: 1.5rem;
-    color: #18BB9C;
-  }
-  
-  .detalle-titulo h5 {
-    margin-top: 5px;
-  }
-  
-  
   
   .detalle-duracion {
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .detalle-idioma {
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .detalle-incluido {
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .detalle-noincluido {
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .detalle-reservar {
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .detalle-accesibilidad {
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .detalle-mascotas {
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .detalle-faq {
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .detalle-faq-2 ul {
     list-style: none;
     margin-top: 10px;
+    font-size: $main-font-size;
+  }
+
+  .detalle-cancelacion {
+    p {
+      font-size: $main-font-size;
+    }
   }
   
   .detalle-location {
     display: flex;
     gap: 10px;
+    
   }
   
   .detalle-location i {
-    color: #18BB9C;
+    color: $color-primary;
   }
   
   .meeting-point, .ubicacion {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    p {
+      font-size: $main-font-size;
+    }
   }

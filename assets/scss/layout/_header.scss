@@ -5,7 +5,7 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.416) , transparent), url('../../../public/uploads/images/tour1.jpg');
   background-size: cover;
   background-position: bottom; 
-  color: #fff;
+  color: $color-white;
   text-align: center;
 }
 .hero-background {
@@ -18,7 +18,7 @@
     text-align: center;
     h3, p {
         margin: 0;
-        color: white;
+        color: $color-white;
     }
   }
   .animation{

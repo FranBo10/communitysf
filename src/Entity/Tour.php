@@ -43,6 +43,12 @@ class Tour
     #[ORM\OneToMany(mappedBy: 'tour', targetEntity: Slider::class)]
     private Collection $sliders;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $hora_inicio = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $hora_fin = null;
+
     public function __construct()
     {
         $this->reservas = new ArrayCollection();
@@ -200,5 +206,30 @@ class Tour
     public function __toString()
     {
         return $this->titulo;
+    }
+
+
+    public function getHoraInicio(): ?\DateTimeInterface
+    {
+        return $this->hora_inicio;
+    }
+
+    public function setHoraInicio(\DateTimeInterface $hora_inicio): static
+    {
+        $this->hora_inicio = $hora_inicio;
+
+        return $this;
+    }
+
+    public function getHoraFin(): ?\DateTimeInterface
+    {
+        return $this->hora_fin;
+    }
+
+    public function setHoraFin(\DateTimeInterface $hora_fin): static
+    {
+        $this->hora_fin = $hora_fin;
+
+        return $this;
     }
 }

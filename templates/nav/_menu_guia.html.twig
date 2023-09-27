@@ -1,10 +1,10 @@
-<div id="header-3">
-  <div class="logo">
+<div id="navigation-3">
+  <div class="logo-2">
     <a href="{{ path('home') }}">Comm<span>unity</span></a>
   </div>
   {% if is_granted('ROLE_GUIA') %}
   <nav>
-    <ul class="menu-nav">
+    <ul>
       <li>
         <a href="{{ path('home') }}">inicio</a>
       </li>
@@ -14,7 +14,7 @@
       </li>
       {% if app.user %}
       <li>
-        <div class="icon-nav">
+        <div class="icon-nav-2">
           <img
             class="rounded-circle"
             src="{{ asset('uploads/images/avatars/' ~ app.user.avatar ~ '.jpg') }}"
@@ -204,4 +204,4 @@
   </nav>
 </div>
 
-<script src="{{ asset('assets/js/menu_guia.js') }}"></script>
+{# <script src="{{ asset('assets/js/menu_guia.js') }}"></script> #}

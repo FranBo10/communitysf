@@ -1,11 +1,11 @@
 .btn-primary {
   padding: .50rem 1rem;
-  color: #fff;
+  color: $color-white;
   background-color: $color-primary;
   border: 2px solid $color-primary-dark;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: $main-font-size/1.5;
+  font-size: $main-font-size;
   text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: .2rem .2rem 0.5rem $color-gray-light,
@@ -23,12 +23,12 @@
 
 .btn-secondary {
   padding: .50rem 1rem;
-  color: #fff;
+  color: $color-white;
   background-color: $color-secondary;
   border: 2px solid $color-secondary-dark;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: $main-font-size/1.5;
+  font-size: $main-font-size;
   text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: .2rem .2rem 0.5rem $color-gray-light,
@@ -45,12 +45,12 @@
 
 .btn-tertiary {
   padding: .50rem 1rem;
-  color: #fff;
+  color: $color-white;
   background-color: $color-tertiary;
   border: 2px solid $color-tertiary-dark;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: $main-font-size/1.5;
+  font-size: $main-font-size;
   text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: .2rem .2rem 0.5rem $color-gray-light,
@@ -67,33 +67,33 @@
 
 .btn-primary-card {
     padding: 0.375rem 0.75rem;
-    color: #fff;
-    background-color: #18BB9C;
-    border-color: #18BB9C;
+    color: $color-white;
+    background-color: $color-primary;
+    border-color: $color-primary;
     border-radius: 0.25rem;
     text-decoration: none;
   }
   
   .btn-secondary-card {
-    color: #fff;
-    background-color: #798889;
-    border-color: #798889;
+    color: $color-white;
+    background-color: $color-secondary;
+    border-color: $color-secondary-dark;
     padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
     text-decoration: none;
   }
   
-  .btn-terciary-card {
-    color: #fff;
-    background-color: #3498DB;
-    border-color: #3498DB;
+  .btn-tertiary-card {
+    color: $color-white;
+    background-color: $color-tertiary;
+    border-color: $color-tertiary;
     padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
     text-decoration: none;
   }
   
   .btn-user_nav {
-    color: #fff;
+    color: $color-white;
     background-color: #E74C3C;
     border-color: #E74C3C;
     padding: 0.375rem 0.75rem;
@@ -105,7 +105,7 @@
   .btn-description {
     color: #333;
     background-color: transparent;
-    border: 1px solid #18BB9C;
+    border: 1px solid $color-primary;
     padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
   }
@@ -115,13 +115,13 @@
     justify-content: center;
     align-items: center;
     padding: 0.375rem 0.75rem;
-    background-color: #18BB9C;
-    border-color: #18BB9C;
+    background-color: $color-primary;
+    border-color: $color-primary;
     border-radius: 0.25rem;
     margin: auto;
   }
   
   .btn-home a {
     text-decoration: none;  
-    color: #fff;
+    color: $color-white;
   }

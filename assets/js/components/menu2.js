@@ -1,9 +1,9 @@
 const header = document.querySelector("#navigation-2");
-const menuBtn = document.querySelector(".menu-btn");
-const closeBtn = document.querySelector(".close-btn");
-const menuMobile = document.querySelector(".menu-mobile");
+const menuBtn = document.querySelector(".menu-btn-2");
+const closeBtn = document.querySelector(".close-btn-2");
+const menuMobile = document.querySelector(".menu-mobile-2");
 const navBarSpan = document.querySelector(".logo a span");
-const navBarElem = document.querySelector("nav ul li a");
+const navBarElem = document.querySelector("#menu-nav ul li a");
 const navBarUserName = document.querySelector(".icon-nav-1 a");
 const mobileLinks = document.querySelectorAll(".menu-mobile li");
 

@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 use App\Entity\Guia;
 use App\Entity\Tour;
 use App\Entity\User;
+use App\Entity\Evento;
 use App\Entity\Slider;
 use App\Entity\Cliente;
 use App\Entity\Reserva;

@@ -42,10 +42,14 @@ class DetallesReserva
     #[ORM\JoinTable(name: 'detalles_reserva_reserva')]
     private Collection $reservas;
 
+    #[ORM\OneToMany(mappedBy: 'detallesReserva', targetEntity: Evento::class)]
+    private Collection $eventos;
+
     public function __construct()
     {
         $this->fecha_evento = new \DateTime();
         $this->reservas = new ArrayCollection();
+        $this->eventos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -165,5 +169,40 @@ class DetallesReserva
         $this->fecha_evento = $fecha_evento;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Evento>
+     */
+    public function getEventos(): Collection
+    {
+        return $this->eventos;
+    }
+
+    public function addEvento(Evento $evento): static
+    {
+        if (!$this->eventos->contains($evento)) {
+            $this->eventos->add($evento);
+            $evento->setDetallesReserva($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvento(Evento $evento): static
+    {
+        if ($this->eventos->removeElement($evento)) {
+            // set the owning side to null (unless already changed)
+            if ($evento->getDetallesReserva() === $this) {
+                $evento->setDetallesReserva(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->fecha_evento->format('Y-m-d');
     }
 }

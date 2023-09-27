@@ -11,6 +11,15 @@
     align-items: flex-start;
 }
 
+@mixin flexEnd() {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+
 //MEDIA QUERY BREAKPOINTS
 
 @mixin media($breakpoint) {

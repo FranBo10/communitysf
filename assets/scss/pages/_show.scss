@@ -1,0 +1,28 @@
+.table__head {
+    font-size: $main-font-size;
+}
+
+.table__titulo {
+    font-size: $main-font-size;
+}
+
+.table__precio {
+    font-size: $main-font-size;
+    height: 100%;
+    span {        
+        margin-top: 30px;
+    }
+    
+}
+
+.table__adultos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.table__adultos input {
+    /* Agrega aquí tus estilos personalizados para el input */
+    width: 100%; /* O cualquier otro ancho que desees */
+}

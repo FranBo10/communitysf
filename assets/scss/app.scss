@@ -7,13 +7,17 @@
 @import 'base/default';
 @import 'base/utilities';
 @import 'components/buttons';
-@import 'layout/navigation';
-@import 'layout/navigation2';
+@import 'components/navigation';
+@import 'components/navigation2';
+@import 'components/navigation3';
 @import 'layout/header';
 @import 'layout/carrusel';
+@import 'layout/calendario';
 @import 'pages/home';
 @import 'pages/contacto';
 @import 'pages/cuenta';
+@import 'pages/show';
+@import 'pages/login';
 @import 'pages/validar_reserva';
 @import 'pages/reservas';
 

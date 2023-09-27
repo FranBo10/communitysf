@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Entity\Tour;
 use App\Entity\User;
+use App\Entity\Evento;
 use App\Entity\Reserva;
 use App\Form\UserFormType;
 use App\Entity\DetallesReserva;
@@ -31,6 +33,11 @@ class ReservaController extends AbstractController
     #[Route('/reserva/{id}', name: 'show')]
     public function show(Request $request, EntityManagerInterface $em, Tour $tour, DetallesReserva $detallesReserva = null)
     {
+
+        if (!$tour) {
+            return $this->redirectToRoute('home');
+        }
+
         if ($detallesReserva == null) {
             $detallesReserva = new DetallesReserva;
         }
@@ -40,7 +47,6 @@ class ReservaController extends AbstractController
         $reserva->setUser($this->getUser())
             ->setEstado('Añadir guía')
             ->setReferencia(uniqId())
-            ->setFechaEvento(new \DateTime())
             ->setTour($tour);
 
         $form = $this->createForm(DetallesReservaFormType::class, $detallesReserva);
@@ -64,12 +70,42 @@ class ReservaController extends AbstractController
                 ->setTotalReserva($totalReserva)
                 ->setUsers($this->getUser());
 
+
+            $fechaReserva = $detallesReserva->getFechaEvento();
+            $fechaActual = new DateTime("now");
+
+            if ($fechaReserva < $fechaActual) {
+                $this->addFlash('danger', 'La fecha del evento no puede ser anterior a la fecha actual, por favor modifica la fecha de la reserva');
+                return $this->redirectToRoute('show', [
+                    'id' => $tour->getId()
+                ]);
+            }
+
+            $detallesReserva->getFechaEvento($fechaReserva);
+
             $reserva->addDetallesReserva($detallesReserva);
+
+            // Crear un evento por cada detalle de reserva
+
+            $evento = new Evento();
+            $evento->setTitulo($tour->getTitulo())
+                ->setInicio($tour->getHoraInicio())
+                ->setFin($tour->getHoraFin())
+                ->setFechaEvento($detallesReserva->getFechaEvento())
+                ->setCantidad($detallesReserva->getCantidad())
+                ->setReservas($reserva)
+                ->setDetallesReserva($detallesReserva)
+                ->setTour($tour);
+
+            $reserva->addEvento($evento);
+
             $em->persist($reserva);
             $em->flush();
+
             $this->addFlash('success', 'Su reserva ha sido confirmada, puede encontrar los detalles en su perfil', [
                 'duration' => 5
             ]);
+
             return $this->redirectToRoute('validar_reserva', ['id' => $reserva->getId()]);
         }
 
@@ -84,6 +120,7 @@ class ReservaController extends AbstractController
             'id' => $detallesReserva->getId(),
         ]);
     }
+
 
     #[Route('/validar_reserva/{id}', name: 'validar_reserva')]
     public function validarReserva($id, ReservaRepository $repo, Request $request)
@@ -110,7 +147,7 @@ class ReservaController extends AbstractController
                 ->setApellidos($apellidos);
             $this->em->persist($user);
             $this->em->flush();
-            $this->rs->getSession()->getFlashBag()->add('success', 'Su reserva ha sido conformada, gracias.');
+            $this->rs->getSession()->getFlashBag()->add('success', 'Su reserva ha sido confirmada, gracias.');
         }
 
         return $this->render('app/validar_reserva.html.twig', [
@@ -119,9 +156,8 @@ class ReservaController extends AbstractController
             'userForm' => $form->createView()
         ]);
     }
-
-
-
+}
+    
 
 
     // $tour = $repo->find($id);
@@ -167,4 +203,3 @@ class ReservaController extends AbstractController
     // return $this->redirectToRoute('app_app');
     // }
     // }
-}

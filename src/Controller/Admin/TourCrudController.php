@@ -4,7 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Tour;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -24,6 +26,8 @@ class TourCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+            TimeField::new('hora_inicio', 'Inicio')->setFormat('short'),
+            TimeField::new('hora_fin', 'Fin')->setFormat('short'),
             TextField::new('titulo', 'Titulo'),
             TextField::new('descripcion_corta', 'Descripcion corta')->onlyOnForms(),
             TextEditorField::new('descripcion_larga', 'Descripcion larga')->onlyOnForms(),

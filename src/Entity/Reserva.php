@@ -31,19 +31,20 @@ class Reserva
     #[ORM\ManyToOne(inversedBy: 'reservas')]
     private ?Guia $guia = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $fecha_evento = null;
-
     #[ORM\ManyToOne(inversedBy: 'reservas')]
     private ?User $user = null;
 
     #[ORM\ManyToMany(targetEntity: DetallesReserva::class, mappedBy: 'reservas', cascade: ['persist'])]
     private Collection $detallesReservas;
 
+    #[ORM\OneToMany(mappedBy: 'reservas', targetEntity: Evento::class, cascade: ['persist'])]
+    private Collection $eventos;
+
     public function __construct()
     {
         $this->fecha_registro = new \DateTimeImmutable();
         $this->detallesReservas = new ArrayCollection();
+        $this->eventos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -117,18 +118,6 @@ class Reserva
         return $this;
     }
 
-    public function getFechaEvento(): ?\DateTimeInterface
-    {
-        return $this->fecha_evento;
-    }
-
-    public function setFechaEvento(\DateTimeInterface $fecha_evento): static
-    {
-        $this->fecha_evento = $fecha_evento;
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -164,6 +153,36 @@ class Reserva
         if (!$this->detallesReservas->contains($detallesReserva)) {
 
             $detallesReserva->removeReserva($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Evento>
+     */
+    public function getEventos(): Collection
+    {
+        return $this->eventos;
+    }
+
+    public function addEvento(Evento $evento): self
+    {
+        if (!$this->eventos->contains($evento)) {
+            $this->eventos->add($evento);
+            $evento->setReservas($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvento(Evento $evento): self
+    {
+        if ($this->eventos->removeElement($evento)) {
+            // set the owning side to null (unless already changed)
+            if ($evento->getReservas() === $this) {
+                $evento->setReservas(null);
+            }
         }
 
         return $this;

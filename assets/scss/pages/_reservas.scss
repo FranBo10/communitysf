@@ -1,18 +1,16 @@
 .reservas {
-  background-color: #f4f4f4;
+  background-color: $color-gray-light;
   height: 100%;
   width: 100%;
 }
 
 
 .titulo__reservas {
-  font-size: 70px;
+  font-size: $huge-font-size;
   font-weight: bold;
   margin: auto;
   margin-bottom: 2rem;
 }
-
-
 
 .cards__reservas {
   display: grid;
@@ -29,11 +27,11 @@
 .card__reservas {
   display: flex;
   border: 1px solid $color-primary;
-  padding: 15px;
+  padding: $padding;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-  color: #333; 
+  color: $color-gray-dark; 
   height: 200px;
   overflow: hidden;
 }

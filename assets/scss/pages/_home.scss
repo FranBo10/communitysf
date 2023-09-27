@@ -6,7 +6,7 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.416) , transparent), url('../../../public/uploads/images/tour1.jpg');
   background-size: cover;
   background-position: bottom; 
-  color: #fff;
+  color: $color-white;
   text-align: center;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .hero h1 {
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 2px $color-black;
 }
 
 .hero-background {
@@ -44,7 +44,7 @@
 .hero-content h3,
 .hero-content p {
   margin: 0;
-  color: white;
+  color: $color-white;
 }
 
 .btn-home {
@@ -52,15 +52,15 @@
   justify-content: center;
   align-items: center;
   padding: 0.375rem 0.75rem;
-  background-color: #18BB9C;
-  border-color: #18BB9C;
+  background-color: $color-primary;
+  border-color: $color-primary;
   border-radius: 0.25rem;
   margin: auto;
 }
 
 .btn-home a {
   text-decoration: none;  
-  color: #fff;
+  color: $color-white;
 }
 
 
@@ -68,7 +68,7 @@
 .servicios {
   padding: 1rem 1rem;
   min-height: 100vh;
-  background-color: #f4f4f4;
+  background-color: $color-gray-light;
 }
 
 .titulo__servicios {
@@ -84,7 +84,7 @@
 .card {
     height: 200px;
     max-width: 100%;
-    background-color: #ffffff;
+    background-color: $color-white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
@@ -99,7 +99,7 @@
 
 .servicios .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustar el tamaño de las columnas */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ajustar el tamaño de las columnas */
   gap: 20px; /* Añadir espaciado entre las tarjetas */
   padding: 0 2rem; /* Ajustar el espaciado horizontal */
 }
@@ -107,7 +107,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgb(94, 211, 191);
+  background: $color-primary;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -129,18 +129,18 @@
 
 .card-title {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: $main-font-size;
   margin-bottom: 10px;  
 }
 
 .card-description {
-  font-size: 0.875rem;
+  font-size: $small-font-size;
   color: #666;
   margin-bottom: 15px;
 }
 
 .card-price {
-  font-size: 1rem;
+  font-size: $main-font-size;
   margin-bottom: 15px;
 }
 
@@ -149,19 +149,19 @@
   justify-content: center;
   align-items: center;
   margin-right: 5px;
-  font-size: 12px;
+  font-size: $main-font-size;
   padding: 5px 10px;
 }
 
 .card-btn a {
   display: inline-block;
-  color: #fff;
+  color: $color-white;
   text-decoration: none;
   margin-right: 10px;
 }
 
 .card-buttons a:hover {
-  background-color: #333;
+  background-color: $color-gray-dark;
 }
 
 .card-slider {
@@ -180,7 +180,7 @@
   height: 40%;
   left: 0;
   bottom: 0;
-  background-color: #333;
+  background-color: $color-gray-darken;
   padding: 10px 0;
 }
 
@@ -230,9 +230,9 @@
   text-align: center;
   font-size: clamp(16px, 6vw, 50px);
   margin-bottom: 50px;
-  color: #fff;
+  color: $color-white;
   font-weight: bold;
-  text-shadow: 4px 4px 8px #333;
+  text-shadow: 4px 4px 8px $color-gray-dark;
 }
 
 .card-text:last-child {
@@ -244,7 +244,7 @@
 }
 
 .card-body p {
-  color: #fff;
+  color: $color-white;
   font-weight: bold;
 }
 

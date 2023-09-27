@@ -17,23 +17,23 @@ class SendContactCommand extends Command
     private $contactRepository;
     private $mailer;
     private $cs;
-    private $usuarioRepository;
+    private $userRepository;
     protected static $defaultName = 'app:send-contact';
 
-    public function __construct(ContactoRepository $contactRepository, MailerInterface $mailer, ContactoService $cs, UserRepository $usuarioRepository)
+    public function __construct(ContactoRepository $contactRepository, MailerInterface $mailer, ContactoService $cs, UserRepository $userRepository)
     {
         $this->contactRepository = $contactRepository;
         $this->mailer = $mailer;
         $this->cs = $cs;
-        $this->usuarioRepository = $usuarioRepository;
+        $this->userRepository = $userRepository;
         parent::__construct();
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $toSend = $this->contactRepository->findBy(['isSend' => false]);
-        $client = $this->usuarioRepository->getCliente();
-        $address = new Address($this->usuarioRepository->getCliente()->getEmail(), $this->usuarioRepository->getCliente()->getNombre());
+        $client = $this->userRepository->getCliente();
+        $address = new Address($this->userRepository->getCliente()->getEmail(), $this->userRepository->getCliente()->getNombre());
         if ($client) {
             $address = new Address($client->getEmail(), $client->getNombre());
         } else {

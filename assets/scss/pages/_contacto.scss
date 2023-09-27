@@ -1,9 +1,9 @@
 #main-container {
-    color: #333;
+    color: $color-gray-dark;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Opcional: para centrar horizontalmente */
+    align-items: center; /* Opcional: para centrar horizontalmente */
     padding-top: 40px;
     transition: all 300ms ease;
   }

@@ -9,7 +9,7 @@
     padding: 0 20px;
     z-index: 100000;
     height: 50px;
-    background-color: $color-tertiary;
+    background-color: $color-primary;
     transition: background-color 0.3s ease;
 
 
@@ -68,7 +68,7 @@
         justify-content: center;
         align-items: center;
         gap: 1rem;
-        padding: 16px;
+        padding: $padding;
         text-transform: uppercase;
         transition: all 300ms ease;
         text-decoration: none;

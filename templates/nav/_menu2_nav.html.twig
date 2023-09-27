@@ -5,7 +5,7 @@
   <nav>
     <ul>
       <li>
-        <a href="{{ path('home') }}">Home</a>
+        <a href="{{ path('home') }}" class="text-black">Home</a>
       </li>
       <li>
         {% if is_granted('ROLE_ADMIN') %}
@@ -30,12 +30,12 @@
           <ul>
             {% if app.user %}
             <li>
-              <a href="#">Mi cuenta</a>
+              <a href="{{ path('cuenta') }}">Mi cuenta</a>
               <i class="fas fa-user"></i>
             </li>
             <hr />
             <li>
-              <a href="#">Reservas</a>
+              <a href="{{ path('reservas') }}">Reservas</a>
               <i class="fas fa-clipboard-list"></i>
             </li>
             <hr />
@@ -89,7 +89,11 @@
                       <input type="checkbox" name="_remember_me" />
                       Recuérdame
                     </label>
-                    <small><a href="#">He olvidado mi contraseña</a></small>
+                    <small
+                      ><a href="{{ path('app_forgot_password_request') }}"
+                        >He olvidado mi contraseña</a
+                      ></small
+                    >
                   </div>
                   <div class="button-login">
                     <button class="btn-primary" type="submit">
@@ -175,7 +179,7 @@
 
         <li>
           <div class="item">
-            <a href="#">
+            <a href="{{ path('cuenta') }}">
               <div class="icon"><i class="fas fa-fingerprint"></i></div>
               <div class="title">Mi cu<span>enta</span></div>
             </a>
@@ -186,7 +190,7 @@
 
         <li>
           <div class="item">
-            <a href="#">
+            <a href="{{ path('reservas') }}">
               <div class="icon"><i class="fas fa-clipboard-list"></i></div>
               <div class="title">Res<span>ervas</span></div>
             </a>
