@@ -70,9 +70,9 @@ class ReservaController extends AbstractController
                 ->setTotalReserva($totalReserva)
                 ->setUsers($this->getUser());
 
-
-            $fechaReserva = $detallesReserva->getFechaEvento();
+            $fechaReserva = $detallesReserva->getFechaEvento()->format('Y-m-d H:i:s');
             $fechaActual = new DateTime("now");
+            $fechaActual = $fechaActual->format('Y-m-d H:i:s');
 
             if ($fechaReserva < $fechaActual) {
                 $this->addFlash('danger', 'La fecha del evento no puede ser anterior a la fecha actual, por favor modifica la fecha de la reserva');
@@ -80,6 +80,7 @@ class ReservaController extends AbstractController
                     'id' => $tour->getId()
                 ]);
             }
+
 
             $detallesReserva->getFechaEvento($fechaReserva);
 

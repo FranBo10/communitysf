@@ -29,7 +29,9 @@
   
   <body>
     {% block header %} <header>{% include 'nav/_menu2_nav.html.twig' %}</header> {% endblock %}
-    {% block body %}{% endblock %} {% block javascripts %}
+    {% block body %}{% endblock %} 
+    {% block footer %}{% include 'footer/footer.html.twig' %}{% endblock %}
+    {% block javascripts %}
     {{ encore_entry_script_tags("js/app") }}
 
     {#

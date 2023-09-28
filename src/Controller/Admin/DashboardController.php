@@ -49,6 +49,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::section('SuperAdmin'),
             MenuItem::linkToCrud('Guias', 'fas fa-user', Guia::class),
             MenuItem::linkToCrud('Tours', 'fa fa-book', Tour::class),
+            MenuItem::linkToCrud('Eventos', 'fa fa-calendar', Evento::class),
             MenuItem::linkToCrud('Sliders', 'fa fa-robot', Slider::class),
             MenuItem::linkToCrud('Clientes', 'fa fa-users', Cliente::class),
         ];
