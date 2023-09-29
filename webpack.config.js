@@ -23,7 +23,7 @@ Encore
     .addEntry('js/app', './assets/js/app.js')
     .addEntry('js/tour', './assets/js/tour.js')
     .addEntry('js/menu2', './assets/js/menu2.js')
-    .addEntry('js/menu2', './assets/js/menu2.js')
+    .addEntry('js/menu', './assets/js/menu.js')
 
     // .addStyleEntry('css/app', './assets/scss/app.scss')
 
