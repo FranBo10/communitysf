@@ -43,6 +43,12 @@ class Tour
     #[ORM\OneToMany(mappedBy: 'tour', targetEntity: Slider::class)]
     private Collection $sliders;
 
+    #[ORM\OneToMany(mappedBy: 'tour', targetEntity: DetallesReserva::class)]
+    private Collection $detallesReserva;
+
+    #[ORM\OneToMany(mappedBy: 'tour', targetEntity: Evento::class)]
+    private Collection $eventos;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $hora_inicio = null;
 
@@ -197,6 +203,66 @@ class Tour
             // set the owning side to null (unless already changed)
             if ($slider->getTour() === $this) {
                 $slider->setTour(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, DetallesReserva>
+     */
+    public function getDetallesReserva(): Collection
+    {
+        return $this->detallesReserva;
+    }
+
+    public function addDetallesReserva(DetallesReserva $detallesReserva): static
+    {
+        if (!$this->detallesReserva->contains($detallesReserva)) {
+            $this->detallesReserva->add($detallesReserva);
+            $detallesReserva->setTour($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetallesReserva(DetallesReserva $detallesReserva): static
+    {
+        if ($this->detallesReserva->removeElement($detallesReserva)) {
+            // set the owning side to null (unless already changed)
+            if ($detallesReserva->getTour() === $this) {
+                $detallesReserva->setTour(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Evento>
+     */
+    public function getEventos(): Collection
+    {
+        return $this->eventos;
+    }
+
+    public function addEvento(Evento $evento): static
+    {
+        if (!$this->eventos->contains($evento)) {
+            $this->eventos->add($evento);
+            $evento->setTour($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvento(Evento $evento): static
+    {
+        if ($this->eventos->removeElement($evento)) {
+            // set the owning side to null (unless already changed)
+            if ($evento->getTour() === $this) {
+                $evento->setTour(null);
             }
         }
 

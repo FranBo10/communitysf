@@ -63,6 +63,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Reserva::class)]
     private Collection $reservas;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Guia::class)]
+    private Collection $guias;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: DetallesReserva::class)]
+    private Collection $detallesReserva;
+
+
     public function __construct()
     {
         $this->fecha_registro = new \DateTime('now');
@@ -280,7 +287,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    
+    /**
+     * @return Collection<int, Guia>
+     */
+    public function getGuias(): Collection
+    {
+        return $this->guias;
+    }
+
+    public function addGuias(Guia $guia): static
+    {
+        if (!$this->guias->contains($guia)) {
+            $this->guias->add($guia);
+            $guia->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGuias(Guia $guia): static
+    {
+        if ($this->guias->removeElement($guia)) {
+            // set the owning side to null (unless already changed)
+            if ($guia->getUser() === $this) {
+                $guia->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, DetallesReserva>
+     */
+    public function getDetallesReserva(): Collection
+    {
+        return $this->detallesReserva;
+    }
+
+    public function addDetallesReserva(DetallesReserva $detallesReserva): static
+    {
+        if (!$this->detallesReserva->contains($detallesReserva)) {
+            $this->detallesReserva->add($detallesReserva);
+            $detallesReserva->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetallesReserva(DetallesReserva $detallesReserva): static
+    {
+        if ($this->detallesReserva->removeElement($detallesReserva)) {
+            // set the owning side to null (unless already changed)
+            if ($detallesReserva->getUser() === $this) {
+                $detallesReserva->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->nombre . " " . $this->apellidos;

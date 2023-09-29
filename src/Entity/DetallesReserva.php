@@ -33,7 +33,7 @@ class DetallesReserva
     private ?Tour $tour = null;
 
     #[ORM\ManyToOne(inversedBy: 'detallesReserva')]
-    private ?User $users = null;
+    private ?User $user = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $fecha_evento = null;
@@ -147,14 +147,14 @@ class DetallesReserva
         return $this;
     }
 
-    public function getUsers(): ?User
+    public function getUser(): ?User
     {
-        return $this->users;
+        return $this->user;
     }
 
-    public function setUsers(?User $users): static
+    public function setUser(?User $user): static
     {
-        $this->users = $users;
+        $this->user = $user;
 
         return $this;
     }
