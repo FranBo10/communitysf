@@ -1,10 +1,10 @@
 const header = document.querySelector("#navigation-2");
-const menuBtn = document.querySelector(".menu-btn-2");
-const closeBtn = document.querySelector(".close-btn-2");
-const menuMobile = document.querySelector(".menu-mobile-2");
+const menuBtn = document.querySelector(".menu-btn");
+const closeBtn = document.querySelector(".close-btn");
+const menuMobile = document.querySelector(".menu-mobile");
 const navBarSpan = document.querySelector(".logo a span");
-const navBarElem = document.querySelector("#menu-nav ul li a");
-const navBarUserName = document.querySelector(".icon-nav-1 a");
+const navBarElem = document.querySelector("nav ul li a");
+// const navBarUserName = document.querySelector(".icon-nav-1 a");
 const mobileLinks = document.querySelectorAll(".menu-mobile li");
 
 menuBtn.addEventListener("click", () => {
@@ -15,7 +15,7 @@ menuBtn.addEventListener("click", () => {
   header.style.backgroundColor = "#18BB9C";
   navBarElem.style.color = "#000";
   navBarSpan.style.color = "#000";
-  navBarUserName.style.color = "#000";
+  // navBarUserName.style.color = "#000";
 });
 
 closeBtn.addEventListener("click", () => {
@@ -26,19 +26,19 @@ closeBtn.addEventListener("click", () => {
     header.style.backgroundColor = "#18BB9C";
     navBarElem.style.color = "#000";
     navBarSpan.style.color = "#000";
-    navBarUserName.style.color = "#000";
+    // navBarUserName.style.color = "#000";
   } else {
     // Solo cambia el color de fondo si el ancho de la pantalla es menor a 970px
     if (window.innerWidth < 970) {
       header.style.backgroundColor = "#18BB9C";
       navBarElem.style.color = "#000";
       navBarSpan.style.color = "#000";
-      navBarUserName.style.color = "#000";
+      // navBarUserName.style.color = "#000";
     } else {
       header.style.backgroundColor = "transparent";
       navBarElem.style.color = "#18BB9C";
       navBarSpan.style.color = "#18BB9C";
-      navBarUserName.style.color = "#18BB9C";
+      // navBarUserName.style.color = "#18BB9C";
     }
   }
 });
@@ -107,16 +107,7 @@ function selectAvatar(imagePath) {
   console.log(avatarInput.value);
 }
 
-//* ------------- Logique pour que le fond du navBar change a partir d'un petit scroll d'ecran, et aussi la couleur de certains elements qui se trouvent dans la navBar, et a partir de 300px de scroll la navBar disparait en se montre a noubeau quand on scroll vers la haut ----------------
 
-if (window.innerWidth >= 970) {
-  navBar1.style.backgroundColor = "#18BB9C";
-  navBarElem.style.color = "#000";
-  navBarSpan.style.color = "#000";
-  navBarUserName.style.color = "#000";
-} else if (window.scrollY > 300) {
-  navBar1.style.display = "none";
-}
 
 
 

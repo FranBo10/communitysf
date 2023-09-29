@@ -1,4 +1,5 @@
 import '../scss/app.scss';
-import './components/menu';
-import './components/tour';
-import './components/calendario';
+import './menu';
+import './menu2';
+import './tour';
+import './calendario';
