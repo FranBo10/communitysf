@@ -4,7 +4,6 @@ footer {
     justify-content: space-around;
     background: $color-gray-darken;
     color: white;
-    padding: $padding;
 
 }
 
@@ -12,6 +11,7 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    padding: $padding 0;
 }
 
 .redes-sociales__column {    
@@ -20,13 +20,15 @@ footer {
     flex-direction: column; 
     align-items: center; 
     gap: 20px;
+    padding: $main-font-size;
     
 } 
 .redes-sociales__elementos{
     width: 100%;
  display:flex;
- justify-content: space-around;
+ justify-content: center;
  align-items: center;
+ gap: 50px;
  margin-bottom: 20px;
  .izq, .dcha {
     display: flex;
@@ -62,7 +64,7 @@ footer {
 .quienes-somos__column {
     width: 50%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -72,13 +74,14 @@ footer {
     margin-bottom: 20px; 
 }
 
-.elemento,
-.elemento2 {
+.column__right-up {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: $big-font-size;
-    font-size: $main-font-size;
+    font-size: $medium-font-size;
+    width: 50%;
     margin: 10px 0px;
     img{
         border-radius: 50%;
@@ -101,4 +104,10 @@ footer {
         }
     }
 }
+
+@include media(tablet) {
+    .quienes-somos__column {
+        flex-direction: column;
+
+    }}
 

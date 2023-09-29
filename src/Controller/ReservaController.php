@@ -74,6 +74,8 @@ class ReservaController extends AbstractController
             $fechaActual = new DateTime("now");
             $fechaActual = $fechaActual->format('Y-m-d H:i:s');
 
+            dd($fechaActual);
+
             if ($fechaReserva < $fechaActual) {
                 $this->addFlash('danger', 'La fecha del evento no puede ser anterior a la fecha actual, por favor modifica la fecha de la reserva');
                 return $this->redirectToRoute('show', [

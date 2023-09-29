@@ -15,6 +15,9 @@ class Guia
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(length: 180, unique: true)]
+    private ?string $email = null;
+
     #[ORM\Column(length: 50)]
     private ?string $nombre = null;
 
@@ -30,15 +33,30 @@ class Guia
     #[ORM\Column(length: 255)]
     private ?string $avatar = null;
 
+    #[ORM\OneToMany(mappedBy: 'guia', targetEntity: Reserva::class)]
+    private Collection $reservas;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $fecha_registro = null;
 
-    #[ORM\OneToMany(mappedBy: 'guia', targetEntity: Reserva::class)]
-    private Collection $reservas;
+    #[ORM\ManyToOne(inversedBy: 'guias')]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
     }
 
     public function getNombre(): ?string
@@ -139,6 +157,18 @@ class Guia
                 $reserva->setGuia(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

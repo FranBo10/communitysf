@@ -1,5 +1,14 @@
+.table__section {
+    width: 100%;
+    padding: $padding;
+    margin: $medium-font-size 0;
+}
+
 .table__head {
     font-size: $main-font-size;
+    th{
+        text-align: center;
+    }
 }
 
 .table__titulo {

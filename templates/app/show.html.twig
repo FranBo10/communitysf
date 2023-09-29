@@ -6,14 +6,15 @@
     {{ message }}
   </div>
   {% endfor %}
+<section class="table__section">
   <table class="table">
     <thead class="table__head">
       <tr>
-        <th class="text-center align-middle">Tour</th>
-        <th class="text-center align-middle">Precio</th>
-        <th class="text-center align-middle">Adultos</th>
-        <th class="text-center align-middle">Niños</th>
-        <th class="text-center align-middle">Fecha</th>
+        <th class="align-middle">Precio</th>
+        <th class="align-middle">Adultos</th>
+        <th class="align-middle">Niños</th>
+        <th class="align-middle">Fecha</th>
+        <th class="align-middle">Tour</th>
         <th></th>
       </tr>
     </thead>
@@ -71,9 +72,9 @@
     #}
   </table>
   
-    <div class="row col-12">
-      <div class="col-6">
-        <div class="buttons">
+  <div class="row col-12">
+    <div class="col-6">
+      <div class="buttons">
           <a href="#" class="btn-secondary me-3">
             Vaciar el carrito
           </a>
@@ -89,10 +90,11 @@
     </div>
   </div>
   <!-- Fin del bloque de formulario de datos personales -->
-
-
+  
+  
   {% else %}
   <p>Tu carrito está vacío</p>
   {% endif %}
 </div>
+</section>
 {% endblock %} 

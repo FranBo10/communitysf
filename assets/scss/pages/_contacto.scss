@@ -1,6 +1,7 @@
 #main-container {
     color: $color-gray-dark;
     width: 100%;
+    min-height: 65vh;
     display: flex;
     flex-direction: column;
     align-items: center; /* Opcional: para centrar horizontalmente */

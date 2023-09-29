@@ -37,7 +37,7 @@ class Reserva
     #[ORM\ManyToMany(targetEntity: DetallesReserva::class, mappedBy: 'reservas', cascade: ['persist'])]
     private Collection $detallesReservas;
 
-    #[ORM\OneToMany(mappedBy: 'reservas', targetEntity: Evento::class, cascade: ['persist'])]
+    #[ORM\OneToMany(mappedBy: 'reservas', targetEntity: Evento::class, cascade: ["persist", "remove"])]
     private Collection $eventos;
 
     public function __construct()
