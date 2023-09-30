@@ -68,7 +68,8 @@ class ReservaController extends AbstractController
             $detallesReserva->setId($detallesReserva->getId())
                 ->setCantidad($cantidad)
                 ->setTotalReserva($totalReserva)
-                ->setUser($this->getUser());
+                ->setUser($this->getUser())
+                ->setTour($tour);
 
             $fechaReserva = $detallesReserva->getFechaEvento()->format('Y-m-d H:i:s');
             $fechaActual = new DateTime("now");
