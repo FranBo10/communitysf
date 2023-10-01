@@ -1,1 +1,1 @@
-postdeploy: php bin/console doctrine:migrations:diff 
+postdeploy: php bin/console doctrine:migrations:migrate 
