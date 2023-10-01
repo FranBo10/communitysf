@@ -149,7 +149,7 @@ class ReservaController extends AbstractController
                 ->setApellidos($apellidos);
             $this->em->persist($user);
             $this->em->flush();
-            $this->rs->getSession()->getFlashBag()->add('success', 'Su reserva ha sido confirmada, gracias.');
+            $this->addFlash('success', 'Su reserva ha sido confirmada, gracias.');
         }
 
         return $this->render('app/validar_reserva.html.twig', [
