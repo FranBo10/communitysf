@@ -77,7 +77,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         //P1D le decimos que el tiempo de validacion del token sera de 1 dia
         $this->token_life_time = (new \DateTime('now'))->add(new DateInterval("P1D"));
         $this->reservas = new ArrayCollection();
+        $this->detallesReserva = new ArrayCollection();
+        $this->guias = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {

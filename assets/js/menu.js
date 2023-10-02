@@ -26,7 +26,7 @@ const closeBtn = document.querySelector(".close-btn");
 const menuMobile = document.querySelector(".menu-mobile");
 const navBarSpan = document.querySelector(".logo a span");
 const navBarElem = document.querySelector("nav ul li a");
-// const navBarUserName = document.querySelector(".icon-nav");   
+const navBarUserName = document.querySelector("#user__name");   
 const mobileLinks = document.querySelectorAll(".menu-mobile li");
 
 menuBtn.addEventListener("click", () => {
@@ -37,7 +37,7 @@ menuBtn.addEventListener("click", () => {
   navBar1.style.backgroundColor = "#18BB9C";
   navBarElem.style.color = "#000";
   navBarSpan.style.color = "#000";
-  // navBarUserName.style.color = "#000";
+  navBarUserName.style.color = "#000";
 });
 
 closeBtn.addEventListener("click", () => {
@@ -48,19 +48,19 @@ closeBtn.addEventListener("click", () => {
     navBar1.style.backgroundColor = "#18BB9C";
     navBarElem.style.color = "#000";
     navBarSpan.style.color = "#000";
-    // navBarUserName.style.color = "#000";
+    navBarUserName.style.color = "#000";
   } else {
     // Solo cambia el color de fondo si el ancho de la pantalla es menor a 970px
     if (window.innerWidth < 970) {
       navBar1.style.backgroundColor = "#18BB9C";
       navBarElem.style.color = "#000";
       navBarSpan.style.color = "#000";
-      // navBarUserName.style.color = "#000";
+      navBarUserName.style.color = "#000";
     } else {
       navBar1.style.backgroundColor = "#18BB9C";
       navBarElem.style.color = "#000";
       navBarSpan.style.color = "#000";
-      // navBarUserName.style.color = "#000";
+      navBarUserName.style.color = "#000";
     }
   }
 });
@@ -104,12 +104,12 @@ if (window.scrollY > 0 && window.scrollY < 300) {
    navBar1.style.backgroundColor = "#18BB9C";
    navBarElem.style.color = "#000";
    navBarSpan.style.color = "#000";
-  //  navBarUserName.style.color = "#000";
+   navBarUserName.style.color = "#000";
  } else {
    navBar1.style.backgroundColor = "#18BB9C";
    navBarElem.style.color = "#000";
    navBarSpan.style.color = "#000";
-  //  navBarUserName.style.color = "#000";
+   navBarUserName.style.color = "#000";
  }
 } else if (window.scrollY > 300) {
  navBar1.style.display = "none";
@@ -117,7 +117,7 @@ if (window.scrollY > 0 && window.scrollY < 300) {
  navBar1.style.backgroundColor = "transparent";
  navBarElem.style.color = "#18BB9C";
  navBarSpan.style.color = "#18BB9C";
-//  navBarUserName.style.color = "#000";
+ navBarUserName.style.color = "#000";
 }
 });
 

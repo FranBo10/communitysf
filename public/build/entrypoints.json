@@ -1,0 +1,34 @@
+{
+  "entrypoints": {
+    "js/app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.js",
+        "/build/js/app.js"
+      ],
+      "css": [
+        "/build/js/app.css"
+      ]
+    },
+    "js/tour": {
+      "js": [
+        "/build/runtime.js",
+        "/build/js/tour.js"
+      ]
+    },
+    "js/menu2": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.js",
+        "/build/js/menu2.js"
+      ]
+    },
+    "js/menu": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.js",
+        "/build/js/menu.js"
+      ]
+    }
+  }
+}

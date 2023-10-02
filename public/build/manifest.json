@@ -1,0 +1,10 @@
+{
+  "build/js/app.css": "/build/js/app.css",
+  "build/js/app.js": "/build/js/app.js",
+  "build/js/tour.js": "/build/js/tour.js",
+  "build/js/menu2.js": "/build/js/menu2.js",
+  "build/js/menu.js": "/build/js/menu.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.js": "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.js",
+  "build/images/tour1.jpg": "/build/images/tour1.8a9cbd72.jpg"
+}
